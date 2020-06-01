@@ -1,0 +1,32 @@
+{
+  "name": "base-express-template",
+  "version": "0.0.1",
+  "description": "Example Express.js/Typescript/Inversify/Mocha+Chai template repository",
+  "main": "dist/index.js",
+  "author": "Ryan Owens <RyanOwens at linux.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "inversify": "^5.0.1",
+    "inversify-express-utils": "^6.3.2",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.9.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/inversify": "^2.0.33",
+    "@types/inversify-express-utils": "^2.0.0",
+    "@types/morgan": "^1.9.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.44"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "dev-new": "// https://github.com/whitecolor/ts-node-dev/issues/143 ts-node-dev src"
+  }
+}
