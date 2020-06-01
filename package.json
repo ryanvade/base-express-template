@@ -12,6 +12,7 @@
     "inversify-express-utils": "^6.3.2",
     "morgan": "^1.10.0",
     "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25",
     "typescript": "^3.9.3",
     "winston": "^3.2.1"
   },

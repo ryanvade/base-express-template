@@ -7,6 +7,7 @@
 - [Morgan](https://github.com/expressjs/morgan)
 - [Winston](https://github.com/winstonjs/winston)
 - [Body Parser](https://github.com/expressjs/body-parser)
+- [TypeORM](https://typeorm.io/)
 
 ## Tools
 - [Typescript](https://www.typescriptlang.org/)
