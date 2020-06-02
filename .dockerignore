@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.env
+.env.example
+.nvmrc
+.git/
+.gitignore
+README.md
+migrations/
