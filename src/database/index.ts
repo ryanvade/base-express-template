@@ -9,7 +9,7 @@ export async function createDatabaseConnection(logger: Logger): Promise<Connecti
     logger.debug("Creating a database connection");
     logger.debug(__dirname);
     let entityPath = __dirname + "/entities/*.js";
-    if (Boolean(process.env.LOCAL)) {
+    if (Boolean(process.env.LOCAL) || process.env.NODE_ENV == "test") {
         entityPath = __dirname + "/entities/*.ts";
     }
     logger.debug(entityPath);
