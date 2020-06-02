@@ -12,7 +12,7 @@ const result = dotenv.config({ path: __dirname + "/../.env.test", debug: true })
 console.log(result);
 
 
-describe("User Service", () => {
+describe("User Service", async () => {
     let container: Container;
 
     beforeEach(async () => {
