@@ -1,6 +1,6 @@
 import { createConnection, getRepository, Repository, Connection } from "typeorm";
 import { Logger } from "winston";
-import { Container } from "inversify";
+import { ContainerModule, interfaces } from "inversify";
 
 import { User } from "./entities/User";
 export { User };
@@ -31,8 +31,6 @@ export async function createDatabaseConnection(logger: Logger): Promise<Connecti
     return null;
 }
 
-export function registerRepositories(logger: Logger, container: Container) {
-    logger.debug("Registering Typeorm Repositories");
-    const userRepository = getRepository<User>(User);
-    container.bind<Repository<User>>("UserRepository").toConstantValue(userRepository);
-}
+export const repositories = new ContainerModule((bind: interfaces.Bind) => {
+    bind<Repository<User>>("UserRepository").toDynamicValue(() => getRepository<User>(User)).inRequestScope();
+});

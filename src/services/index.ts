@@ -1,9 +1,9 @@
 import { User } from "../database";
 import { UserService } from "./User";
-import { Container } from "inversify";
+import { ContainerModule, interfaces } from "inversify";
 import { BaseEntityService } from "./BaseEntityService";
 export { BaseEntityService, UserService };
 
-export function registerServices(container: Container) {
-    container.bind<BaseEntityService<User>>("UserService").to(UserService);
-}
+export const services = new ContainerModule((bind: interfaces.Bind) => {
+    bind<BaseEntityService<User>>("UserService").to(UserService).inRequestScope();
+});
