@@ -21,6 +21,7 @@ const logger = createLogger({
 import "./controllers/Example";
 import "./controllers/User";
 import { Connection } from "typeorm";
+import { registerServices } from "./services";
 
 createDatabaseConnection(logger).then(async (connection: Connection | null) => {
 
@@ -31,6 +32,7 @@ createDatabaseConnection(logger).then(async (connection: Connection | null) => {
     let container = new Container();
     container.bind<Logger>("Logger").toConstantValue(logger);
     registerRepositories(logger, container);
+    registerServices(container);
     
     let server = new InversifyExpressServer(container);
     server.setConfig((app) => {
