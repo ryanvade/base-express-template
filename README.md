@@ -31,3 +31,14 @@ TypeORM can generate migrations based on the entities.
  3. Run the Migrations `yarn migrate-local`
 
  This assumes you want to migrate the local database.
+
+ ### Windows
+ Stuck in Windows Hell? Use the following:
+ 
+ ```cmd
+ yarn typeorm-winblows
+ ```
+
+ ```cmd
+ yarn migrate-local-winblows
+ ```
