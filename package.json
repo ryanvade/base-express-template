@@ -7,10 +7,13 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "inversify": "^5.0.1",
     "inversify-express-utils": "^6.3.2",
     "morgan": "^1.10.0",
+    "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.25",
     "typescript": "^3.9.3",
@@ -18,16 +21,23 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
+    "@types/hapi__joi": "^17.1.1",
     "@types/inversify": "^2.0.33",
     "@types/inversify-express-utils": "^2.0.0",
     "@types/morgan": "^1.9.0",
+    "cross-env": "^7.0.2",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44"
   },
   "scripts": {
     "build": "tsc -p .",
-    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
-    "dev-new": "// https://github.com/whitecolor/ts-node-dev/issues/143 ts-node-dev src"
+    "dev": "cross-env LOCAL=true nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "dev-new": "// https://github.com/whitecolor/ts-node-dev/issues/143 cross-env LOCAL=true ts-node-dev src",
+    "typeorm": "typeorm",
+    "migrate-local": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.local.json",
+    "migrate-dev": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.dev.json",
+    "migrate-staging": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.staging.json",
+    "migrate-prod": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.prod.json"
   }
 }
