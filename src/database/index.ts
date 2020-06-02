@@ -8,7 +8,7 @@ export { User };
 export async function createDatabaseConnection(logger: Logger): Promise<Connection | null> {
     logger.debug("Creating a database connection");
     logger.debug(__dirname);
-    let entityPath = __dirname + "/database/entities/*.js";
+    let entityPath = __dirname + "/entities/*.js";
     if (Boolean(process.env.LOCAL)) {
         entityPath = __dirname + "/entities/*.ts";
     }
@@ -21,7 +21,7 @@ export async function createDatabaseConnection(logger: Logger): Promise<Connecti
             username: process.env.DB_USER || "",
             password: process.env.DB_PASSWORD || "",
             database: process.env.DB_NAME || "",
-            logging: true,
+            logging: !!process.env.DB_LOGGING || process.env.NODE_ENV !== "production",
             entities: [entityPath]
         });
     } catch (error) {
