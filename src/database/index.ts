@@ -20,9 +20,11 @@ export async function createDatabaseConnection(logger: Logger): Promise<Connecti
             port: Number(process.env.DB_PORT) || 5432,
             username: process.env.DB_USER || "",
             password: process.env.DB_PASSWORD || "",
-            database: process.env.DB_NAME || "",
-            logging: !!process.env.DB_LOGGING || process.env.NODE_ENV !== "production",
-            entities: [entityPath]
+            logging: Boolean(process.env.DB_LOGGING),
+            entities: [entityPath],
+            synchronize: process.env.NODE_ENV == "test",
+            schema: process.env.DB_SCHEMA || "",
+            database: process.env.DB_NAME || ""
         });
     } catch (error) {
         logger.error(`Unable to establish database connection: ${error}`);
