@@ -33,16 +33,14 @@
     "cross-env": "^7.0.2",
     "faker": "^4.1.0",
     "mocha": "^7.2.0",
-    "nodemon": "^2.0.4",
     "supertest": "^4.0.2",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44"
   },
   "scripts": {
     "build": "tsc -p .",
-    "dev": "cross-env LOCAL=true nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "dev": "cross-env LOCAL=true ts-node-dev src",
     "test": "cross-env NODE_ENV=test mocha -r ts-node/register tests/*.spec.ts tests/**/*.spec.ts",
-    "dev-new": "// https://github.com/whitecolor/ts-node-dev/issues/143 cross-env LOCAL=true ts-node-dev src",
     "typeorm": "typeorm",
     "migrate-local": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.local.json",
     "migrate-dev": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.dev.json",
