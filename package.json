@@ -41,15 +41,10 @@
     "build": "tsc -p .",
     "dev": "cross-env LOCAL=true ts-node-dev src",
     "test": "cross-env NODE_ENV=test mocha -r ts-node/register tests/*.spec.ts tests/**/*.spec.ts",
-    "typeorm": "typeorm",
-    "migrate-local": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.local.json",
-    "migrate-dev": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.dev.json",
-    "migrate-staging": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.staging.json",
-    "migrate-prod": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -f ./migrations/ormconfig.prod.json",
-    "typeorm-winblows": "./node_modules/typeorm/cli.js",
-    "migrate-local-windblows": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.local.json",
-    "migrate-dev-winblows": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.dev.json",
-    "migrate-staging-winblows": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.staging.json",
-    "migrate-prod-winblows": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.prod.json"
+    "typeorm": "./node_modules/typeorm/cli.js",
+    "migrate-local": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.local.json",
+    "migrate-dev": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.dev.json",
+    "migrate-staging": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.staging.json",
+    "migrate-prod": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run -f ./migrations/ormconfig.prod.json"
   }
 }

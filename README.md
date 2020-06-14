@@ -34,14 +34,4 @@ TypeORM can generate migrations based on the entities.
 
  ### Testing
  Make sure to create the `test` schema on the local Postgres database. Then run tests with `yarn test`.
-
- ### Windows
- Stuck in Windows Hell? Use the following:
  
- ```cmd
- yarn typeorm-winblows
- ```
-
- ```cmd
- yarn migrate-local-winblows
- ```
